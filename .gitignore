@@ -1,0 +1,8 @@
+bin/
+obj/
+.local-feed/
+.local-packages/
+TestResults/
+*.user
+.vs/
+.idea/

@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+
+    <!-- The released packages under test. verify-fixes.sh overrides these with local builds. -->
+    <PolecatVersion Condition="'$(PolecatVersion)' == ''">5.36.0</PolecatVersion>
+    <WeaselVersion Condition="'$(WeaselVersion)' == ''">9.41.0</WeaselVersion>
+    <JasperFxVersion Condition="'$(JasperFxVersion)' == ''">2.80.2</JasperFxVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Polecat" Version="$(PolecatVersion)" />
+    <PackageReference Include="Weasel.Core" Version="$(WeaselVersion)" />
+    <PackageReference Include="Weasel.SqlServer" Version="$(WeaselVersion)" />
+    <PackageReference Include="Weasel.Storage" Version="$(WeaselVersion)" />
+    <PackageReference Include="JasperFx" Version="$(JasperFxVersion)" />
+    <PackageReference Include="JasperFx.Events" Version="$(JasperFxVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.12" />
+    <PackageReference Include="Testcontainers.MsSql" Version="4.15.0" />
+    <PackageReference Include="NSubstitute" Version="5.3.0" />
+    <PackageReference Include="Shouldly" Version="4.3.0" />
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+</Project>
